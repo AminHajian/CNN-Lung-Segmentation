@@ -9,7 +9,7 @@ This folder is for preparing images for modeling and training neural network. Al
 I found this dataset from the Keggel website and did not upload it due to the large volume of the dataset.
 You can find the dataset in this link: https://www.kaggle.com/datasets/nikhilpandey360/chest-xray-masks-and-labels
 
-![image](readme_images\Original_image.png)
+![image](readme_images/Original_image.png)
 
 ## Thresholding (based on lung color)
 This part was one of the most challenging parts of this image preparation.
@@ -24,7 +24,7 @@ So I performed the separation step based on the average pixels of a rectangle th
 ### Thresholding
 After determining the color of the lung, I apply the thresholding filter to the image. This filter divides the value of each pixel into white and black groups based on the threshold we specify. This threshold is determined based on the color of the lungs that I specified in the previous step
 
-![image](readme_images\threshold.png)
+![image](readme_images/threshold.png)
 
 ### Blacken from left side
 At this stage, I should have extracted the lung from the image, but the problem was that the background image and the lungs were the same color.
@@ -32,19 +32,19 @@ Since I did not find a ready-made function, I started working on it myself. I wr
 
 | Blacken from left side                                  | Blacken from right side                            |  Blacken from both side|
 | -----------------------------------             | ---------------------------------      |---------------------------|
-| ![image](readme_images\Edited_from_left.png)     | ![image](readme_images\Edited_from_right.png) | ![image](readme_images\Edited_from_both_sides.png)            |
+| ![image](readme_images/Edited_from_left.png)     | ![image](readme_images/Edited_from_right.png) | ![image](readme_images/Edited_from_both_sides.png)            |
 
 ### Top contours
 Now it was time to extract the lung from the image. I used the contour and at the end I added the big contours related to the lungs in a completely black image.
 
-![image](readme_images\top_contours.png)
+![image](readme_images/top_contours.png)
 
 ### Blur filter
 For easier and more accurate processing and not to confuse the machine during the training phase, I had to correct the side of the lungs, which is very ugly and irregular. As a result, I blurred the image for the lungs. As you can see in the picture below, the armpits of the lungs are no longer irregular.
 
-![image](readme_images\blur_filter.png)
+![image](readme_images/blur_filter.png)
 
 ### Threshold again
 In the last step, I just had to apply the threshold once more to get the final image.
 
-![image](readme_images\threshold_again.png)
+![image](readme_images/threshold_again.png)
